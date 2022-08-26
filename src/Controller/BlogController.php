@@ -23,4 +23,12 @@ class BlogController extends AbstractController
             'title' => 'Bienvenue les amis !'
         ]);
     }
+
+    #[Route('/blog/{id}', name: 'blog_show')]
+    public function show()
+    {
+        return $this->render('blog/show.html.twig', [
+            // 'title' => 'Bienvenue les amis !'
+        ]);
+    }
 }
