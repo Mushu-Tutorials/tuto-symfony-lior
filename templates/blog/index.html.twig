@@ -6,35 +6,18 @@
 {% block body %}
 
   <section class="">
-    <article>
-      <h2>Titre de l'article</h2>
-      <div class="metadata">Ecrit le 10/05/2018 a 19h00 dans la categorie Politique</div>
-      <div class="content">
-        <img src="https://via.placeholder.com/350x150" alt="">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, dignissimos? Cupiditate molestias magni consequuntur doloremque.</p>
-        <p>Eveniet veritatis numquam, tempore aut repellat in ipsa modi ipsum odio rerum, earum non nihil!</p>
-        <a href="{{ path('blog_show', { 'id': 12 }) }}" class="btn btn-primary">Lire la suite</a>
-      </div>
-    </article>
-    <article>
-      <h2>Titre de l'article</h2>
-      <div class="metadata">Ecrit le 10/05/2018 a 19h00 dans la categorie Politique</div>
-      <div class="content">
-        <img src="https://via.placeholder.com/350x150" alt="">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis repellat dolore incidunt qui inventore dolor!</p>
-        <p>Sunt minima quidem cupiditate laudantium voluptas! Quas delectus eos blanditiis ratione, animi dicta cupiditate iusto!</p>
-        <a href="{{ path('blog_show', { 'id': 13 }) }}" class="btn btn-primary">Lire la suite</a>
-      </div>
-    </article>
-    <article>
-      <h2>Titre de l'article</h2>
-      <div class="metadata">Ecrit le 10/05/2018 a 19h00 dans la categorie Politique</div>
-      <div class="content">
-        <img src="https://via.placeholder.com/350x150" alt="">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel natus consequatur asperiores illo odit fuga?</p>
-        <p>Aliquam repudiandae molestias ipsum, harum, eum cupiditate laborum officiis quidem nihil a quo pariatur inventore?</p>
-        <a href="{{ path('blog_show', { 'id': 14 }) }}" class="btn btn-primary">Lire la suite</a>
-      </div>
-    </article>
+    {% for article in articles %}
+      <article>
+        <h2>{{ article.title }}</h2>
+        <div class="metadata">Ecrit le
+          {{ article.createdAt|date("d/m/Y à H:i") }}
+          dans la categorie Politique</div>
+        <div class="content">
+          <img src="{{ article.image }}" alt="">
+          <p>{{ article.content|raw }}</p>
+          <a href="{{ path('blog_show', { 'id': article.id }) }}" class="btn btn-primary">Lire la suite</a>
+        </div>
+      </article>
+    {% endfor %}
   </section>
 {% endblock %}

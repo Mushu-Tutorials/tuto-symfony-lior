@@ -1,16 +1,14 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-  <article>
-    <h2>Titre de l'article</h2>
-    <div class="metadata">Ecrit le 10/05/2018 a 19h00 dans la categorie Politique</div>
-    <div class="content">
-      <img src="https://via.placeholder.com/350x150" alt="">
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita, dignissimos? Cupiditate molestias magni consequuntur doloremque.</p>
-      <p>Eveniet veritatis numquam, tempore aut repellat in ipsa modi ipsum odio rerum, earum non nihil!</p>
-      <hr>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum provident, qui assumenda magni iste eligendi voluptatem sit ipsa, dolorum deleniti rem, ex eos accusamus. Dignissimos mollitia, ipsum suscipit libero atque quam ut similique eaque impedit molestias cumque eius saepe at autem sit labore accusamus aut praesentium alias culpa recusandae minus.</p>
-      <p>Ducimus non reiciendis ipsum nobis molestias consequuntur libero quam ut possimus asperiores itaque labore explicabo vitae voluptatibus fugit eaque, quaerat perferendis. Explicabo porro veritatis, unde quos asperiores minima, ipsum nemo omnis voluptates voluptatibus eum, cupiditate at voluptatum. Blanditiis distinctio, voluptates veniam obcaecati minima, ad voluptas, libero vel quisquam possimus aliquid.</p>
-    </div>
-  </article>
+      <article>
+        <h2>{{ article.title }}</h2>
+        <div class="metadata">Ecrit le
+          {{ article.createdAt|date("d/m/Y à H:i") }}
+          dans la categorie Politique</div>
+        <div class="content">
+          <img src="{{ article.image }}" alt="">
+          <p>{{ article.content|raw }}</p>
+        </div>
+      </article>
 {% endblock %}
